@@ -1,0 +1,40 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@400;700&display=swap");
+
+/* 
+font-family: "Poppins", sans-serif;
+font-family: "DM Sans", sans-serif;
+*/
+
+html,
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: green;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+nav {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(38, 41, 45, 1);
+  background: rgba(23, 23, 24, 1);
+  color: white;
+}
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 40px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+}
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
