@@ -66,8 +66,11 @@ nav {
 }
 .nav-list__link {
   color: var(--header-text);
+  transition: opacity 0.2s ease-in;
 }
-
+.nav-list__link:hover {
+  opacity: 0.8;
+}
 .nav-list__link--active {
   position: relative;
 }
@@ -102,6 +105,7 @@ nav {
   padding: 0 15px;
 }
 .header__title {
+  margin-bottom: 20px;
   font-size: 40px;
   font-weight: 700;
   line-height: 1.5;
@@ -115,6 +119,31 @@ nav {
   color: var(--accent);
 }
 .header__text {
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 1.3333;
+}
+.header__text p + p {
+  margin-top: 0.5em;
 }
 .btn {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 28px;
+
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--white);
+  letter-spacing: 0.15px;
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: opacity 0.2s ease-in;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
 }
