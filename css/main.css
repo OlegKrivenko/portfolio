@@ -19,16 +19,41 @@ font-family: "DM Sans", sans-serif;
   --dark-border: var(--black-border);
   --header-text: var(--white);
   --accent: var(--purple);
+
+  /* Light mode */
+  --page-bg: var(--white);
+  --text-color: var(--black);
+
+  --project-card-bg: var(--white);
+  --project-card-text: var(--black);
+
+  --box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.25);
+  --box-shadow-btn-githb-repo: none;
+}
+
+body.dark {
+  /* Dark mode */
+  --page-bg: #323233;
+  --text-color: var(--white);
+
+  --project-card-bg: var(--black);
+  --project-card-text: var(--white);
+
+  --box-shadow: 0px 5px 35px 0px rgba(82, 82, 82, 0.8);
+  --box-shadow-btn-githb-repo: 0px 5px 35px 0px rgba(80, 80, 80, 0.8);
 }
 
 html,
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
 
   font-family: "DM Sans", sans-serif;
   letter-spacing: -0.15px;
+
+  /* Light mode  */
+  background-color: var(--page-bg);
   color: var(--text-color);
 }
 main {
@@ -117,7 +142,7 @@ nav {
   width: 51px;
   padding: 5px;
 
-  background: #272727;
+  background: #323233;
 }
 
 .dark-mode-btn::before {
@@ -239,10 +264,10 @@ nav {
 
 .projects__item {
   min-width: 370px;
-  background-color: var(--white);
+  background-color: var(--project-card-bg);
   border-radius: 10px;
 
-  box-shadow: 0px 5px 35px 0px var(--gray-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 .projects__img {
@@ -252,7 +277,7 @@ nav {
 .projects__title {
   padding: 15px 20px 25px;
 
-  color: var(--text-color);
+  color: var(--project-card-text);
 
   font-size: 24px;
   font-weight: 700;
@@ -292,12 +317,14 @@ nav {
   display: inline-flex;
   column-gap: 10px;
   align-items: center;
+  background-color: #fff;
 
   padding: 12px 20px;
 
   border: 1px solid var(--blackpure);
   border-radius: 5px;
   color: var(--blackpure);
+  box-shadow: var(--box-shadow-btn-githb-repo);
 
   font-size: 16px;
   font-weight: 500;
@@ -336,13 +363,15 @@ nav {
   color: var(--accent);
 }
 
+.content-list__item {
+  color: var(--text-color);
+}
 .content-list__item:not(:last-child) {
   margin-bottom: 40px;
 }
 .content-list__item p {
   margin: 0 auto;
   max-width: 570px;
-  color: rgba(23, 23, 24, 1);
 
   font-family: DM Sans;
   font-size: 18px;
