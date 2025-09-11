@@ -1,23 +1,27 @@
 const btnDarkMode = document.querySelector(".dark-mode-btn");
 
-// Проверка наличия кнопки на странице
 if (btnDarkMode) {
-  // Проверка сохраненнрй темы или системной (в виндовс или браузере)
-  // в localStorage при загрузке страницы
   const savedTheme = localStorage.getItem("darkMode");
-  const prefersDarkScheme = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-  if (savedTheme === "dark" || (!savedTheme && prefersDarkScheme)) {
-    btnDarkMode.classList.add("dark-mode-btn--active");
-    document.body.classList.add("dark");
-  }
+  // Установка начальной темы
+  const shouldUseDark = savedTheme === "dark" || (!savedTheme && prefersDarkScheme.matches);
 
-  // Включение ночного режима по кнопке и запись в localStorage
+  btnDarkMode.classList.toggle("dark-mode-btn--active", shouldUseDark);
+  document.body.classList.toggle("dark", shouldUseDark);
+
+  // Слушаем переключение системной темы в опереционной системе пользователя (если пользователь не выбрал вручную)
+  prefersDarkScheme.addEventListener("change", (e) => {
+    if (!localStorage.getItem("darkMode")) {
+      btnDarkMode.classList.toggle("dark-mode-btn--active", e.matches);
+      document.body.classList.toggle("dark", e.matches);
+    }
+  });
+
+  // Переключение темы по кнопке
   btnDarkMode.onclick = function () {
-    btnDarkMode.classList.toggle("dark-mode-btn--active");
     const isDark = document.body.classList.toggle("dark");
+    btnDarkMode.classList.toggle("dark-mode-btn--active", isDark);
     localStorage.setItem("darkMode", isDark ? "dark" : "light");
   };
 }

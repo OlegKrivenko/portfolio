@@ -1,0 +1,9 @@
+{
+  "editor.wordWrap": "off",
+  "[markdown]": {
+    "editor.wordWrap": "off"
+  },
+  "[plaintext]": {
+    "editor.wordWrap": "off"
+  }
+}
