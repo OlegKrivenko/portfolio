@@ -1,9 +1,11 @@
+// Dark Theme +++++++++++++++++++++++++++++++++++++++++++++++ start +++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 const btnDarkMode = document.querySelector(".dark-mode-btn");
 
 if (btnDarkMode) {
   const savedTheme = localStorage.getItem("darkMode");
   const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
+  console.log(prefersDarkScheme);
   // Установка начальной темы
   const shouldUseDark = savedTheme === "dark" || (!savedTheme && prefersDarkScheme.matches);
 
@@ -25,3 +27,4 @@ if (btnDarkMode) {
     localStorage.setItem("darkMode", isDark ? "dark" : "light");
   };
 }
+// Dark Theme +++++++++++++++++++++++++++++++++++++++++++++++ end +++++++++++++++++++++++++++++++++++++++++++++++++++++
